@@ -1,1 +1,20 @@
-/*# sourceMappingURL=app.component.css.map */
+h1 {
+  background-color: red !important;
+}
+
+svg {
+  background-color: yellow;
+}
+
+img {
+  background-color: green;
+  fill: red;
+  filter: hue-rotate(40deg);
+}
+
+.chair-svg {
+  fill: red;
+}
+.chair-svg svg {
+  fill: red;
+}/*# sourceMappingURL=app.component.css.map */

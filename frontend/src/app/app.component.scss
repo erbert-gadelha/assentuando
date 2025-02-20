@@ -1,0 +1,23 @@
+h1 {
+    background-color: red !important;
+}
+
+svg {
+    background-color: yellow;
+}
+
+img {
+    background-color: green;
+    fill: red;
+
+    filter: hue-rotate(40deg);
+}
+
+
+.chair-svg {
+    svg {
+
+    fill: red;
+    }
+    fill: red;
+}
