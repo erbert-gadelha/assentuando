@@ -7,7 +7,7 @@
 
 <section id="theater-grid">
     <ng-container *ngFor="let theather of theathers; let i = index">
-        <div>
+        <div (click)="navigateTo(theather.id)">
             {{ theather.name }}
         </div>
     </ng-container>

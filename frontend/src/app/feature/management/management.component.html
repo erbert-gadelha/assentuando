@@ -1,1 +1,12 @@
-<p>management works!</p>
+<section>
+    <input type="text" value="{{title}}"/>
+</section>
+
+<section id="seats">
+    <ng-container *ngFor="let seat of seats; let i = index">
+        <app-chair-svg>
+            {{ seat.person }}
+        </app-chair-svg>
+    </ng-container>
+</section>
+

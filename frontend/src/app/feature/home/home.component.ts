@@ -10,6 +10,14 @@ import { Router } from '@angular/router';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+
+
+
+  constructor(private r: Router) {
+      this.router = r;
+  }
+  public router:Router|null = null;
+
   public theathers:Theater[] = [
     {id:7, name:"sala de conferência"},
     {id:2, name:"anfiteatro"},
@@ -23,6 +31,10 @@ export class HomeComponent {
 
   public delete(index:number):void {
     console.warn("deletar do backend.")
+  }
+
+  public navigateTo(index:number):void {
+    this.router?.navigate([`/sala/${index}`])
   }
 }
 

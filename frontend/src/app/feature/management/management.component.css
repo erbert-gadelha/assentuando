@@ -1,0 +1,23 @@
+section {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+}
+
+input {
+  background-color: white;
+  width: 90%;
+  margin: auto;
+  border-bottom: 2px var(--color-0) solid;
+  /*box-shadow: 0 0px 4px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.3);*/
+  font-size: 1.5rem;
+  padding: 8px 16px;
+}
+input:focus {
+  outline: none;
+}
+
+#seats {
+  background-color: dodgerblue;
+}/*# sourceMappingURL=management.component.css.map */
