@@ -26,4 +26,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
+}
+#container nav a {
+  color: var(--color-0);
+  text-decoration: none;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }/*# sourceMappingURL=header.component.css.map */
