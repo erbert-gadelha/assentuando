@@ -2,26 +2,147 @@ section {
     display: flex;
     align-items: center;
     margin-top: 16px;
+    flex-direction: column;
 }
 
-input {
+#theather-name  {
     background-color: white;
     width: 90%;
     margin: auto;
     border-bottom: 2px var(--color-0) solid;
-    /*box-shadow: 0 0px 4px 0px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.3);*/
     font-size: 1.5rem;
 
     padding: 8px 16px;
 
     &:focus {
+        background-color: rgb(243, 243, 243);
         outline: none;
     }
 
 }
 
+#seat-info-close {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+
+    animation: identifier 100ms ease-in forwards;
+    z-index: 1;
+}
+
+
+
+@keyframes identifier {
+    from {
+        opacity: 0;
+        background-color: white;
+    } to {
+        opacity: .5;
+        background-color: white;
+    }
+}
+
+#seat-info {
+    background-color: white;
+
+    box-shadow: 0 0;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 33%;
+    max-width: 400px;
+    z-index: 100;
+
+    padding: 8px;
+    box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.3);
+
+    font-weight: 200;
+
+    span {
+        font-size: 1rem;
+    }
+
+    input {
+        padding: 8px;
+        border-bottom: 2px var(--color-0) solid;
+        width: 100%;
+        font-size: 1.2rem;
+
+        &:focus {
+            background-color: rgb(243, 243, 243);
+            outline: none;
+        }
+    }
+
+    #clear {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        font-size: 1.2rem;
+        font-weight: 1000;
+        color: var(--color-0);
+        background-color: transparent;
+        cursor: pointer;
+    }
+    
+}
 
 #seats {
-    background-color: dodgerblue;
+    position: relative;
+    width: 100%;
+}
+
+#seats-grid {
+    display: grid;
+    max-width: 500px;
+    margin: auto;
+    grid-template-columns: repeat(5, auto);
+    padding: 32px;
+    gap: min(7%, 32px);
+    width: 100%;
+}
+
+
+#seats-grid svg:nth-child(n+6):nth-child(-n+10) {
+  margin-left: 25% !important;
+}
+
+
+svg {
+    width: 100%;
+    height: 100%;
+    margin-left: -25%;
+
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    &:hover {
+        filter: brightness(.8);
+    }
+}
+
+
+
+@media (width <= 950px) {
+    #seat-info-close {
+        opacity: 0 !important;
+    }
+
+    #seat-info {
+        top: 0;
+        right: 50%;
+        transform: translateX(50%);
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    #seats-grid {
+        margin-top: 82px;
+    }
 }

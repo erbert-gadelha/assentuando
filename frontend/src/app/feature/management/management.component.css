@@ -2,6 +2,7 @@ section {
   display: flex;
   align-items: center;
   margin-top: 16px;
+  flex-direction: column;
 }
 
 input {
@@ -18,6 +19,42 @@ input:focus {
   outline: none;
 }
 
+#seat-info {
+  background-color: red;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 #seats {
-  background-color: dodgerblue;
+  position: relative;
+  width: 100%;
+}
+
+#seats-grid {
+  display: grid;
+  outline: red 1px solid;
+  max-width: 500px;
+  margin: auto;
+  grid-template-columns: repeat(5, auto);
+  padding: 32px;
+  gap: min(7%, 32px);
+  width: 100%;
+}
+
+#seats-grid svg:nth-child(n+6):nth-child(-n+10) {
+  margin-left: 25% !important;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  margin-left: -25%;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+}
+svg:hover {
+  filter: brightness(0.8);
 }/*# sourceMappingURL=management.component.css.map */
