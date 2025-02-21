@@ -7,10 +7,18 @@
 
 <section id="theater-grid">
     <ng-container *ngFor="let theather of theathers; let i = index">
-        <div (click)="navigateTo(theather.id)">
+        <!--<div (click)="navigateTo(theather.id)">
             {{ theather.name }}
-        </div>
+        </div>-->
+        <a [routerLink]="['sala', theather.id]">
+            <div>
+                {{ theather.name }}
+            </div>
+        </a>
     </ng-container>
+
+
+
 
     <div id="theater-add" (click)="create()">
         <span>🞡</span>

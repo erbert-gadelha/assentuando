@@ -62,6 +62,10 @@ section {
         }
     }
 
+    a {
+        text-decoration: none;
+    }
+
     div {
         transition-property: transform, opacity;
         transition-duration: 100ms;

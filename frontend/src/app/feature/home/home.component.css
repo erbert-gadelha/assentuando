@@ -54,6 +54,9 @@ section {
   color: white;
   background-color: var(--color-0);
 }
+#theater-grid a {
+  text-decoration: none;
+}
 #theater-grid div {
   transition-property: transform, opacity;
   transition-duration: 100ms;
