@@ -6,8 +6,13 @@
 <div id="division"></div>
 
 <section id="theater-grid">
-    <div><span>sala de conferência</span></div>
-    <div><span>anfiteatro</span></div>
-    <div><span>auditório</span></div>
-    <div id="theater-add"><span>🞡</span></div>
+    <ng-container *ngFor="let theather of theathers; let i = index">
+        <div>
+            {{ theather.name }}
+        </div>
+    </ng-container>
+
+    <div id="theater-add" (click)="create()">
+        <span>🞡</span>
+    </div>
 </section>
