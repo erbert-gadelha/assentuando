@@ -13,12 +13,12 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Seat {
+public class SeatModel {
     @Id
     Integer id;
     String person;
 
     private LocalDateTime changedAt;   
     @ManyToOne(fetch = FetchType.EAGER)
-    Theater theater;
+    TheaterModel theater;
 }
