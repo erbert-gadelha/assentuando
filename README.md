@@ -24,4 +24,5 @@ apois subir os containers a aplicação deve ficar dispoível localmente nos seg
 ----------
 
 ## **Documentação**
-o backend da aplicação é documentado via Swagger. Para vizualizar as rotas disponíveis acesseo endereço `localhost:8080`/docs
+o backend da aplicação é documentado via Swagger. Para vizualizar as rotas disponíveis acesseo endereço `localhost:8080`/docs.
+O mockup da aplicação foi realizado no [figma](https://www.figma.com/design/GyV6SM5YRd4IfodEJwUqT7/Gest%C3%A3o-de-Poltronas?node-id=0-1&t=LDQtJJ8f4j2ckv6F-1) e pode ser acessado no link anexo.
