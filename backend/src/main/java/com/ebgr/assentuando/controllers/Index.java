@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.net.http.HttpResponse;
+import java.util.Map;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +25,8 @@ public class Index {
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Container está funcionando")
     })
-    public ResponseEntity<String> helloWorld() {
-        return ResponseEntity.ok().body("container is up");
+    public ResponseEntity<Map<String, String>> helloWorld() {
+        return ResponseEntity.ok(Map.of("message", "container is up"));
     }
-    
 }
+
