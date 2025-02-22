@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.ebgr.assentuando.models.TheaterModel;
 
-interface TheaterRepository extends CrudRepository<TheaterModel, Integer> {
+public interface TheaterRepository extends CrudRepository<TheaterModel, Integer> {
     Optional<TheaterModel> findUserById(Integer id);
     List<TheaterModel> findAll();    
 }

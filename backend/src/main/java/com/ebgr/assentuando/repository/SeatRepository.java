@@ -9,7 +9,7 @@ import com.ebgr.assentuando.models.SeatModel;
 import com.ebgr.assentuando.models.TheaterModel;
 
 public interface SeatRepository extends CrudRepository<SeatModel, Integer> {
-    Optional<SeatModel> findByTheaterAndId(TheaterModel theater, int id);
+    Optional<SeatModel> findByTheaterAndSeatNumber(TheaterModel theater, Integer seatNumber);
     List<SeatModel> findByTheater(TheaterModel theater);
     List<SeatModel> findAll();
 }
