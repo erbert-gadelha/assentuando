@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../shared/header/header.component';
-import { CommonModule, NgFor} from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { NgFor} from '@angular/common';
+import { RouterLink } from '@angular/router';
+
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environment/environment';
 
 @Component({
   selector: 'app-home',
@@ -9,32 +12,32 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
+  constructor(private http : HttpClient) {}
 
 
+  public theathers:Theater[] = [];
 
-  constructor(private r: Router) {
-      this.router = r;
+  ngOnInit() {
+    this.http.get<Theater[]>(`${environment.host}/api/1/theater/`)
+    .subscribe({
+      next: (theaters) => this.theathers = theaters,
+      error: (err) => console.error("Erro ao criar sala:", err)
+    });
   }
-  public router:Router|null = null;
 
-  public theathers:Theater[] = [
-    {id:7, name:"sala de conferência"},
-    {id:2, name:"anfiteatro"},
-    {id:21, name:"auditório"},
-  ];
-
-  public create():void {
-    console.warn("criar no backend.")
-    this.theathers.push({id:1, name: `sala ${this.theathers.length}` });
+  public async create() {
+    const theaterName = `sala ${this.theathers.length}`
+    this.http.post<Theater>(`${environment.host}/api/1/theater/${theaterName}`, {})
+    .subscribe({
+      next: (theater) => this.theathers.push(theater),
+      error: (err) => console.error("Erro ao criar sala:", err)
+    });
   }
 
   public delete(index:number):void {
     console.warn("deletar do backend.")
-  }
-
-  public navigateTo(index:number):void {
-    this.router?.navigate([`/sala/${index}`])
   }
 }
 

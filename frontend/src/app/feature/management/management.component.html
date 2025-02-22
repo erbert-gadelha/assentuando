@@ -1,7 +1,7 @@
 
 
 <section>
-    <input id="theather-name" type="text" value="{{title}}"/>
+    <input id="theather-name" type="text" value="{{theather.name}}"/>
 
 
     <div id="seats">
@@ -11,15 +11,15 @@
             <button id="clear" (click)="reset()">⤬</button>
 
             <br>
-            <span *ngIf="selected.createdAt"> alocado em: </span>
-            <span *ngIf="selected.createdAt"> {{selected.createdAt}} </span>
+            <span *ngIf="selected.changedAt"> alocado em: </span>
+            <span *ngIf="selected.changedAt"> {{selected.changedAt}} </span>
         </div>
 
         <div id="seat-info-close" *ngIf="focused" (click)="onClick(-1)"> </div>
 
         <div id="seats-grid">
-            <ng-container *ngFor="let seat of seats; let i = index">        
-                <svg (mouseover)="onMouseOver(i)" (mouseout)="onMouseOver(-1)" (click)="onClick(i)" class="seat-svg" width="32" height="27" viewBox="0 0 32 27" [attr.fill]="seat.color" xmlns="http://www.w3.org/2000/svg">
+            <ng-container *ngFor="let seat of theather.seats; let i = index">        
+                <svg (mouseover)="onMouseOver(seat.seatNumber)" (mouseout)="onMouseOver(-1)" (click)="onClick(i)" class="seat-svg" width="32" height="27" viewBox="0 0 32 27" [attr.fill]="seat.color" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10 1H22C24.2091 1 26 2.79086 26 5V26H6V5C6 2.79086 7.79086 1 10 1Z" stroke="black" stroke-width="2"/>
                     <path d="M7.50003 26V13.375C7.50006 8.87508 0.99991 8.87495 1 13.3749L1 23.1259C1 25.6259 2.5 26 4.5 26H7.50003Z"/>
                     <path d="M7.50003 26V13.375C7.50006 8.87508 0.99991 8.87495 1 13.3749M7.50003 26C6.50003 26 5.7 26 4.5 26M7.50003 26H4.5M1 13.3749C1.00003 14.8749 1 22.7926 1 23.1259M1 13.3749L1 23.1259M1 23.1259C1 25.6259 2.5 26 4.5 26" stroke="black" stroke-width="2"/>
