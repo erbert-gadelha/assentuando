@@ -23,7 +23,8 @@ export class ManagementComponent implements OnInit  {
   public selected:Seat|null = null
   public focused:boolean = false
 
-  @ViewChild('input') input: ElementRef|undefined;
+  @ViewChild('personInput') personInput: ElementRef|undefined;
+  @ViewChild('titleInput') titleInput: ElementRef|undefined;
 
 
 
@@ -49,13 +50,10 @@ export class ManagementComponent implements OnInit  {
       .subscribe({
         next: (theater) => {
           this.theather = theater
-
-          //this.theather.seats.forEach(seat => seat.color = seat.person='Erbert')
+          this.theather.seats.sort((s1:Seat, s2:Seat) => s1.seatNumber - s2.seatNumber);
           this.theather.seats.forEach(seat => seat.color = seat.person==null?'white':'var(--color-0)')
-          
-          console.log("theater", this.theather)
         },
-        error: (err) => console.error("Erro ao criar sala:", err)
+        error: (err) => console.error("Erro ao carregar sala:", err)
       });
     });
 
@@ -65,8 +63,18 @@ export class ManagementComponent implements OnInit  {
     
   }
 
-  public onEnter(event: Event) {
-    this.onClick(-1);
+  public onEnter(origin:'title'|'person',  event: Event) {
+    if(origin=='person') { this.onClick(-1); return; }
+    
+
+    const newName:string = this.titleInput?.nativeElement.value;
+    this.http.put<Theater>(`${environment.host}/api/1/theater/${this.theather.id}`, newName)
+    .subscribe({
+      next: (theater) => console.log(theater) /*refreshValues(seat)*/,
+      error: (err) => console.error("Erro ao alterar poltrona:", err)
+    });
+
+
   }
 
 
@@ -99,6 +107,14 @@ export class ManagementComponent implements OnInit  {
       });
   }
 
+  public delete() {
+    this.http.delete<Theater>(`${environment.host}/api/1/theater/${this.theather.id}`)
+    .subscribe({
+      next: (theather) => {this.router.navigate([''])},
+      error: (err) => console.error("Erro ao alterar poltrona:", err)
+    });
+  }
+
 
   public onMouseOver(id:number) {
     /*console.log("onMouseOver", id);
@@ -115,8 +131,8 @@ export class ManagementComponent implements OnInit  {
   }
 
   public reset() {
-    if(this.input?.nativeElement)
-      this.input.nativeElement.value = "";
+    if(this.personInput?.nativeElement)
+      this.personInput.nativeElement.value = "";
   }
   
   
@@ -124,7 +140,7 @@ export class ManagementComponent implements OnInit  {
     if(id < 0 || id >= this.theather.seats.length) {
       this.focused = false;
       if(this.selected != null) {
-        let input:string = this.input?.nativeElement.value.trim();
+        let input:string = this.personInput?.nativeElement.value.trim();
         this.setSeatValue(this.selected.seatNumber, input);
       }
       this.selected = null;

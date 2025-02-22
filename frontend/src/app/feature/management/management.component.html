@@ -1,13 +1,18 @@
 
 
 <section>
-    <input id="theather-name" type="text" value="{{theather.name}}"/>
+    <div id="theather-name-container">
+        <input #titleInput id="theather-name" type="text" value="{{theather.name}}" (keydown.enter)="onEnter('title', $event)"/>
+        <button (click)="delete()" class="material-symbols-outlined">
+            delete
+        </button>
+    </div>
 
 
     <div id="seats">
 
         <div id="seat-info" *ngIf="selected">
-            <input #input name="person-name" id="person-name" placeholder="nome completo" type="text" value="{{selected.person}}"   (keydown.enter)="onEnter($event)">
+            <input #personInput name="person-name" id="person-name" placeholder="nome completo" type="text" value="{{selected.person}}"   (keydown.enter)="onEnter('person', $event)">
             <button id="clear" (click)="reset()">⤬</button>
 
             <br>

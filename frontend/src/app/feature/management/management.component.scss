@@ -5,21 +5,6 @@ section {
     flex-direction: column;
 }
 
-#theather-name  {
-    background-color: white;
-    width: 90%;
-    margin: auto;
-    border-bottom: 2px var(--color-0) solid;
-    font-size: 1.5rem;
-
-    padding: 8px 16px;
-
-    &:focus {
-        background-color: rgb(243, 243, 243);
-        outline: none;
-    }
-
-}
 
 #seat-info-close {
     position: fixed;
@@ -32,6 +17,42 @@ section {
     z-index: 1;
 }
 
+#theather-name-container {
+    display: flex;
+    width: 90%;
+    margin: auto;
+
+    button {
+        cursor: pointer;
+        width: 48px;
+        height: 48px;
+        font-size: 2rem;
+        background-color: transparent;
+
+        color: var(--color-0);
+
+        &:hover {
+            background-color: rgb(243, 243, 243);
+        }
+        
+    }
+
+
+    #theather-name  {
+        width: 100%;
+        background-color: white;
+        border-bottom: 2px var(--color-0) solid;
+        font-size: 1.5rem;
+
+        padding: 8px 16px;
+
+        &:focus {
+            background-color: rgb(243, 243, 243);
+            outline: none;
+        }
+
+    }
+}
 
 
 @keyframes identifier {
