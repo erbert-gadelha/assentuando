@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: assentuando
+  profiles:
+    active: dev
+springdoc:
+  swagger-ui:
+    path: /docs
+
