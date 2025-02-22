@@ -31,7 +31,7 @@ public class SeatController {
 
 
     @GetMapping("{theater}/{seat}")
-    public ResponseEntity<SeatDTO> getSeat(@PathVariable Integer theater, @PathVariable Integer seat) {
+    public ResponseEntity<SeatDTO> getSeat(@PathVariable(name="theater", required=true) Integer theater, @PathVariable(name="seat", required=true) Integer seat) {
         SeatDTO seatDto = seatService.get(seat, theater);
         if(seatDto == null)
             return ResponseEntity.noContent().build();
@@ -39,7 +39,7 @@ public class SeatController {
     }
 
     @PutMapping("{theater}/{seat}")
-    public ResponseEntity<SeatDTO> setSeat(@RequestBody(required = false) String person, @PathVariable Integer theater, @PathVariable Integer seat) {
+    public ResponseEntity<SeatDTO> setSeat(@RequestBody(required = false) String person,@PathVariable(name="theater", required=true) Integer theater, @PathVariable(name="seat", required=true) Integer seat) {
         SeatDTO seatDto = seatService.set(seat, theater, person);
         if(seatDto == null)
             return ResponseEntity.noContent().build();

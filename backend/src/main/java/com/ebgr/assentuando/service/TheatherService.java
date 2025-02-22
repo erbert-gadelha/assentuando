@@ -27,7 +27,7 @@ public class TheatherService {
     @Autowired
     SeatRepository seatRepository;
 
-    static final int MAX_SEATS = 3;
+    static final int MAX_SEATS = 15;
 
 
 
