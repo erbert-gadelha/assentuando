@@ -7,4 +7,6 @@ RUN npm install -g @angular/cli
 RUN npm install
 COPY . /usr/src/app
 
+EXPOSE 4200
+
 CMD ["ng", "serve"]
