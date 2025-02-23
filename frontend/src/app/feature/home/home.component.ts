@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderComponent } from '../../shared/header/header.component';
 import { NgFor} from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -8,7 +7,7 @@ import { environment } from '../../environment/environment';
 
 @Component({
   selector: 'app-home',
-  imports: [HeaderComponent, NgFor, RouterLink],
+  imports: [NgFor, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
