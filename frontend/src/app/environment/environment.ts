@@ -1,3 +1,3 @@
 export const environment = {
-    host: 'https://assentuando-frontend-production.up.railway.app'
+    host: 'https://assentuando-backend-production.up.railway.app'
 }
