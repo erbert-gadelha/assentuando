@@ -1,3 +1,4 @@
+
 # Assentuando
 Gerencie seus assentos com facilidade.
 ![ezgif-1fbc037500fa86](https://github.com/user-attachments/assets/11d02767-e390-41d3-9789-976b6546d28a)
@@ -6,6 +7,8 @@ Aplicação web para gerenciamento de poltronas em uma sala. Foram utilizadas as
 
 ----------
 
+## Deploy na Railway
+Há um deploy da aplicação executando em plano gratuito na [railway](https://railway.com/), portanto é normal passar por instabilidades. O deploy da aplicação foi dividido em [backend](https://assentuando-backend-production.up.railway.app/) e [frontend](https://assentuando-frontend-production.up.railway.app/), e podem ser acessados nos links anexos.
 ##  Como Executar via Docker Compose
 clone o repositório baixando diretamente do seu navegador, ou via CLI.
 
@@ -15,7 +18,7 @@ execute o comando docker na pasta raiz da aplicação
 
     sudo docker-compose up --build
 
-## Acessando a aplicação
+### Acessando a aplicação
 apois subir os containers a aplicação deve ficar dispoível localmente nos seguintes endereços    
    -   **Frontend (Angular):**  [http://localhost:4200](http://localhost:4200)
         
