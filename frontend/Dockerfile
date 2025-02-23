@@ -1,12 +1,15 @@
-FROM node:alpine
 
-WORKDIR /usr/src/app
-COPY package-lock.json /usr/src/app
-COPY package.json /usr/src/app
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package.json package-lock.json ./
 RUN npm install -g @angular/cli
 RUN npm install
-COPY . /usr/src/app
+COPY . .
+RUN ng build
 
-EXPOSE 4200
+FROM nginx:alpine
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=builder /app/dist/frontend/browser/ /usr/share/nginx/html/
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
 
-CMD ["ng", "serve"]
