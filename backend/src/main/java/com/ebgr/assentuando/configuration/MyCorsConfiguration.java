@@ -25,7 +25,7 @@ public class MyCorsConfiguration {
                 "http://localhost:4200",
                 "https://localhost:4200",
                 "https://erbert-gadelha.github.io",
-                "https://pagamento-carnes-production.up.railway.app"));
+                "https://assentuando-frontend-production.up.railway.app"));
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PATCH"));
         corsConfiguration.setAllowCredentials(true);
         corsConfiguration.setAllowedHeaders(List.of("*"));
